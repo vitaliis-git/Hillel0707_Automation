@@ -14,8 +14,6 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-import static java.lang.Thread.sleep;
-
 public class TestCheckingTopSalesBadge {
 
     private WebDriver driver;
@@ -33,21 +31,21 @@ public class TestCheckingTopSalesBadge {
 
     @Test
     public void rozetkaTest() throws InterruptedException {
-        WebElement PcAndLaptops = driver.findElement(By.xpath("//a[@class='menu-categories__link']"));
+        WebElement PcAndLaptops = driver.findElement(By.xpath("//ul[@class='menu-categories menu-categories_type_main']/li[1]"));
         PcAndLaptops.click();
 
-        WebElement Laptops = driver.findElement(By.xpath("//a[@title='Ноутбуки']"));
+        WebElement Laptops = driver.findElement(By.xpath("//*[@href='https://rozetka.com.ua/notebooks/c80004/']"));
         Laptops.click();
 
         WebElement SellerRozetka = driver.findElement(By.xpath("//a[@data-id='Rozetka']"));
         SellerRozetka.click();
 
         WebElement PriceLimitInput = wait.until(ExpectedConditions.presenceOfElementLocated
-                (By.xpath("//*[@class='slider-filter__inner']/input[2]")));
+                (By.xpath("//div[@class='slider-filter__inner']/input[2]")));
         PriceLimitInput.clear();
         PriceLimitInput.sendKeys("100000");
 
-        WebElement SubmitBtn = driver.findElement(By.xpath("//button[@class='button button_color_gray button_size_small slider-filter__button']"));
+        WebElement SubmitBtn = driver.findElement(By.xpath("//div[@class='slider-filter__inner']/button"));
         SubmitBtn.click();
 
         WebElement FirstProduct = wait
