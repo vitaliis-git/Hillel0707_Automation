@@ -51,7 +51,7 @@ public class TestCheckingAvailableByMethod_isDisplayed {
         String availabilityOfProductColor = availabilityOfProduct.getCssValue("color");
 
         if (availabilityOfProduct.isDisplayed() && availabilityOfProductColor.equals("rgba(0, 160, 70, 1)")) {
-            FileWriter fileWriter = new FileWriter("test");
+            FileWriter fileWriter = new FileWriter("test.txt");
             fileWriter.write(productPageTitleText + " " + productPriceText);
             fileWriter.close();
         }

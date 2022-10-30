@@ -36,7 +36,7 @@ public class Test_CheckingAddingToCart {
         WebElement laptops = driver.findElement(By.xpath("//*[contains(@href, 'c80004')]"));
         laptops.click();
 
-        WebElement addToCart = driver.findElement(By.xpath("//app-buy-button[@class='toOrder ng-star-inserted']"));
+        WebElement addToCart = driver.findElement(By.xpath("//ul[@class='catalog-grid ng-star-inserted']/li[1]//button[contains(@class,'buy-button')]"));
         addToCart.click();
 
         WebElement goodsInCart = driver.findElement(By.xpath("//span[@class='counter counter--green ng-star-inserted']"));

@@ -42,6 +42,6 @@ public class RozetkaFirstTest {
 
     @AfterMethod
     public void after(){
-        driver.quit();//закрывает окно браузера
+        driver.quit();
     }
 }
