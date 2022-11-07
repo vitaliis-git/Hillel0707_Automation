@@ -17,6 +17,7 @@ import java.util.List;
 public class Homework27 {
     private WebDriver driver;
     private WebDriverWait wait;
+    final String URL = "https://rozetka.com.ua/ua/";
 
     @BeforeMethod
     public void before() {
@@ -25,7 +26,7 @@ public class Homework27 {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("https://rozetka.com.ua/ua/");
+        driver.get(URL);
     }
 
     @Test
@@ -45,12 +46,10 @@ public class Homework27 {
 
         Assert.assertEquals(itemPriceValue, priceOnProductPageValue, "Цены на главной и на продуктовой страницах не совпадают");
 
-        WebElement logo = driver.findElement(By.xpath("//a[@class='header__logo']"));
-        String logoUrl = logo.getAttribute("href");
+        driver.navigate().back();
 
-        Assert.assertEquals(logoUrl, "https://rozetka.com.ua/ua/", "URLы не совпадают");
-
-        logo.click();
+        String currentURL = driver.getCurrentUrl();
+        Assert.assertEquals(currentURL, URL, "URLы не совпадают");
 
         List<WebElement> saleGoodsNew = driver.findElements(By.xpath("(//ul[contains(@class, 'main-goods')])[4]/li"));
         int countOfGoodsNew = saleGoodsNew.size();

@@ -42,7 +42,7 @@ public class Test_CheckingAddingToCart {
         WebElement goodsInCart = driver.findElement(By.xpath("//span[@class='counter counter--green ng-star-inserted']"));
         String numberOfGoodsInCart = goodsInCart.getAttribute("innerText").trim();
 
-        WebElement productPageTitle = driver.findElement(By.xpath("//span[@class='goods-tile__title']"));
+        WebElement productPageTitle = driver.findElement(By.xpath("(//span[@class='goods-tile__title'])[1]"));
         String productPageTitleText = productPageTitle.getAttribute("innerText").trim();
 
         WebElement cartBtn = driver.findElement(By.xpath("//button[@class='header__button ng-star-inserted header__button--active']"));
