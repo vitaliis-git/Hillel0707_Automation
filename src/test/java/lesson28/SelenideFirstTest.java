@@ -16,6 +16,7 @@ public class SelenideFirstTest {
     public void before() {
         Configuration.browserSize = "1920x1080";
 //        Configuration.timeout = 6000; // default - 4000ms
+//        Configuration.headless = true; - не буде відкриватись вікно браузера, тест в фоновому режимі
         open("https://rozetka.com.ua/ua/");
     }
 
